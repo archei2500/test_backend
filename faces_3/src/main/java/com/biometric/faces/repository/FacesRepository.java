@@ -1,0 +1,12 @@
+package com.biometric.faces.repository;
+
+import com.biometric.faces.model.Faces;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface FacesRepository extends CrudRepository<Faces,String> {
+    public List<Faces> findByCompanyNameAndPriceLessThanEqual(String companyName, double price);
+    public Faces findByCompanyNameAndModelName(String companyName, String modelName);
+}
